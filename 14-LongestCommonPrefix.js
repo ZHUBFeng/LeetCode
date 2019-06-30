@@ -19,31 +19,5 @@ var longestCommonPrefix = function(strs) {
 };
 
 
-function Path(targetX,targetY){
-    result = []
-    function findPath(startX, startY,path){
-        if(startX == targetX && startY == targetY){
-            result.push(path)
-        }else if(startX <= targetX && startY <= targetY){
-            findPath(startX + 1, startY, path + '->')
-            findPath(startX, startY + 1, path + '|')
-        }
-    }
-    findPath(0,0,'')
-    return result
-}
 
-function Path(target){
-    result = []
-    function findPath(start,path){
-        if(start == target){
-            result.push(path)
-        }else if(start < target){
-            findPath(start + 1, path + '一步 ')
-            findPath(start + 2, path + '两步 ')
-        }
-    }
-    findPath(0,'')
-    return result
-}
 
