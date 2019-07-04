@@ -1,3 +1,22 @@
+var addStrings = function(nums1,nums2){
+    var w1 = nums1.length - 1
+    var w2 = nums2.length - 1
+    var sum = ''
+    var carry = 0
+    var remain
+    while(w1 >= 0 || w2 >= 0){
+        remain = ((~~nums1[w1]) + (~~nums2[w2]) + carry) % 10
+        carry =  ((~~nums1[w1]) + (~~nums2[w2]) + carry - remain) / 10
+        sum = remain + sum
+        w1--
+        w2--
+    }
+    if(carry != 0){
+        sum = carry + sum
+    }
+    return sum
+}
+
 var addStrings = function(num1, num2) {
   while(num1.length != num2.length){
       if(num1.length < num2.length){
