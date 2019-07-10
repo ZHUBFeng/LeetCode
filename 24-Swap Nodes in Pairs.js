@@ -11,19 +11,36 @@
  */
 
  
-var swapPairs = function(head) {
-  var temp = head
-  
-  while(temp && temp.next){
-      var k = temp.value
-      temp.value = temp.next.value
-      temp.next.value = k
-      
-      temp = temp.next.next
+// 递归
+var swapPairs = function(head){
+  if(!head || !head.next){
+      return head
   }
   
-  return head
-};
+  var a = head 
+  var b = a.next
+  var c = b.next
+  
+  b.next = a
+  a.next = swapPairs(c)
+  return b
+  
+}
+
+
+// var swapPairs = function(head) {
+//   var temp = head
+  
+//   while(temp && temp.next){
+//       var k = temp.value
+//       temp.value = temp.next.value
+//       temp.next.value = k
+      
+//       temp = temp.next.next
+//   }
+  
+//   return head
+// };
 
 // var swapPairs = function(head) {
 //     if(!head){
