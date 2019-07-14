@@ -67,7 +67,6 @@ var deserialize = function (data) {
       nodes.push(node.left)
     } else {
       node.left = null
-
     }
 
     i++
