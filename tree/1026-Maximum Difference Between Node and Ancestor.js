@@ -3,6 +3,7 @@
  * @return {number}
  */
 
+ //遍历找到每一条路径的最大最小值
 var maxAncestorDiff = function (root) {
   var res = []
   helper(root)
