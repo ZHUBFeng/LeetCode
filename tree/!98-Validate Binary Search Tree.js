@@ -5,7 +5,7 @@
 
 //法一 利用中序遍历 后一个节点一个大于前一个节点
 var isValidBST = function (root) {
-  var pre = new TreeNode()
+  var pre = null
   return inorder(root)
 
   function inorder(root) {
