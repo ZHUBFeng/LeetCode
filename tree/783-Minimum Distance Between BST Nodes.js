@@ -1,3 +1,8 @@
+/**
+ * return the minimum difference between the values of any two different nodes in the tree.
+ * @param {*} root 
+ */
+
 var minDiffInBST = function (root) {
   var min = Infinity
   var prev = null
