@@ -3,6 +3,7 @@
  * @param {*} root 
  */
 
+ //BSD 最小距离一定是相邻的两个节点
 var minDiffInBST = function (root) {
   var min = Infinity
   var prev = null
