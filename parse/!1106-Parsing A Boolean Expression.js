@@ -60,3 +60,68 @@ var parseBoolExpr = function (expression) {
   }
 };
 
+var parseBoolExpr = function (exp) {
+  var i = 0
+  return parseVal()
+
+  function parseVal() {
+    if (exp[i] == 't') {
+      i++
+      return true
+    }
+    if (exp[i] == 'f') {
+      i++
+      return false
+    }
+    if (exp[i] == '!') {
+      return !parseNot()
+    }
+    if (exp[i] == '|') {
+      return parseOr()
+    }
+    if (exp[i] == '&') {
+      return parseAnd()
+    }
+  }
+
+  function parseNot() {
+    i += 2
+    var value = parseVal()
+    i++
+    return value
+  }
+  
+  function parseAnd() {
+    i += 2
+    var res = true
+    while (true) {
+      var r = parseVal()
+      res = res && r
+      if (exp[i] == ',') {
+        i++
+      }
+      if (exp[i] == ')') {
+        i++
+        return res
+      }
+    }
+  }
+
+  function parseOr() {
+    i += 2
+    res = false
+    while (true) {
+      r = parseVal()
+      res = res || r
+
+      if (exp[i] == ',') {
+        i++
+      }
+      if (exp[i] == ')') {
+        i++
+        return res
+      }
+    }
+  }
+
+}
